@@ -27,7 +27,7 @@ int main() {
             tmp = tmp * 10 + (m - '0');
         }
 
-        printf("%llu\n", tmp);
+        // printf("%llu\n", tmp);
         sum += tmp;
     }
 
