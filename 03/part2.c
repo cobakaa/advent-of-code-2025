@@ -13,25 +13,21 @@ int main() {
         ull tmp = 0;
         int start = 0;
         for (size_t i = 12; i > 0; --i) {
-            char cc = '9';
             int found = 0;
-            while (cc != '0') {
-                for (int j = start; line[j] != '\0'; ++j) {
-                    if (line[j] == cc && sl - j >= i) {
-                        tmp = tmp * 10 + (line[j] - '0');
-                        line[j] = '0';
-                        start = j;
-                        found = 1;
-                        break;
-                    }
+            char m = '0';
+            int mi = start;
+            for (int j = start; j <= sl - i; ++j) {
+                if (line[j] > m) {
+                    mi = j;
+                    m = line[j];
+                    start = j + 1;
                 }
-
-                cc--;
-                if (found) break;
             }
+
+            tmp = tmp * 10 + (m - '0');
         }
 
-        // printf("%llu\n", tmp);
+        printf("%llu\n", tmp);
         sum += tmp;
     }
 
